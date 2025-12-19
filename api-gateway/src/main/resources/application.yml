@@ -1,0 +1,19 @@
+server :
+  port : 9090
+
+spring :
+  application :
+    name : API-GATEWAY
+  redis :
+    host : 192.168.0.9
+    port : 6379
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
